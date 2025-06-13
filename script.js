@@ -17,6 +17,7 @@ const loadingSpinner = document.getElementById("loading-spinner");
 const errorMessage = document.getElementById("error-message");
 const errorDetails = document.getElementById("error-details");
 const footer = document.querySelector("footer");
+const themeToggleBtn = document.getElementById("theme-toggle");
 
 let currentDate = new Date();
 
@@ -96,7 +97,7 @@ const displayAPOD = (data) => {
 
     if (data.hdurl) {
       hdLink.href = data.hdurl;
-      hdLinkContainer.style.display = "block";
+      hdLinkContainer.style.display = "flex";
     } else {
       hdLinkContainer.style.display = "none";
     }
@@ -153,6 +154,34 @@ randomApodBtn.addEventListener("click", () => {
     randomApodBtn.disabled = false;
   });
 });
+
+const setTheme = (mode) => {
+  if (mode === "light") {
+    document.body.classList.add("light-mode");
+    localStorage.setItem("theme", "light");
+    themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+  } else {
+    document.body.classList.remove("light-mode");
+    localStorage.setItem("theme", "dark");
+    themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+  }
+};
+
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener("click", () => {
+    const isLight = document.body.classList.toggle("light-mode");
+    setTheme(isLight ? "light" : "dark");
+  });
+}
+
+(function initializeTheme() {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    setTheme(savedTheme);
+  } else {
+    setTheme("dark");
+  }
+})();
 
 const initializeDatePicker = () => {
   const today = new Date();

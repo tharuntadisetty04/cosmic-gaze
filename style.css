@@ -3,6 +3,34 @@
   src: url(./fonts/SpaceGrotesk-Regular.ttf);
 }
 
+:root {
+  --color-bg: #0b1120;
+  --color-bg-card: #192233;
+  --color-text: #f5f5f5;
+  --color-accent: #38bdf8;
+  --color-accent-hover: #3b82f6;
+  --color-btn: #2563eb;
+  --color-btn-hover: #3b82f6;
+  --color-error: #b91c1c;
+  --color-shadow: 0 4px 24px 0 rgba(56, 189, 248, 0.08);
+  --color-border: #23304a;
+  --color-input-bg: #10182b;
+}
+
+body.light-mode {
+  --color-bg: #f5f5f5;
+  --color-bg-card: #ffffff;
+  --color-text: #1e293b;
+  --color-accent: #2563eb;
+  --color-accent-hover: #0ea5e9;
+  --color-btn: #38bdf8;
+  --color-btn-hover: #2563eb;
+  --color-error: #ef4444;
+  --color-shadow: 0 4px 24px 0 rgba(37, 99, 235, 0.08);
+  --color-border: #e2e8f0;
+  --color-input-bg: #f1f5f9;
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -11,8 +39,9 @@
 }
 
 body {
-  color: #f5f5f5;
-  background-color: #0b1120;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  transition: background 0.3s, color 0.3s;
 }
 
 nav {
@@ -20,25 +49,24 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
-  background-color: #192233;
+  background-color: var(--color-bg-card);
 }
 
 #logo {
-  color: #38bdf8;
+  color: var(--color-accent);
   font-size: 1.8rem;
 }
 
 .social-links > a {
   text-decoration: none;
-  color: #f5f5f5;
+  color: var(--color-text);
   font-size: 1.2rem;
   transition: 0.3s ease;
   margin-left: 0.3rem;
 }
 
 .social-links > a:hover {
-  color: #38bdf8;
-  filter: drop-shadow(0 0 2px #38bdf8);
+  color: var(--color-accent);
 }
 
 main {
@@ -58,8 +86,8 @@ main {
 }
 
 .loader {
-  border: 4px solid #f5f5f5;
-  border-top: 4px solid #38bdf8;
+  border: 4px solid var(--color-accent);
+  border-top: 4px solid var(--color-bg);
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -78,14 +106,16 @@ main {
 #loading-spinner > p {
   font-size: 2rem;
   margin-top: 1rem;
+  color: var(--color-text);
 }
 
 #error-message {
-  background-color: #b91c1c;
+  background-color: var(--color-error);
   padding: 1.5rem;
   border-radius: 0.5rem;
   margin-top: 2rem;
   display: none;
+  color: #f5f5f5;
 }
 
 #error-details {
@@ -93,7 +123,7 @@ main {
 }
 
 #apod-card {
-  background-color: #192233;
+  background-color: var(--color-bg-card);
   max-width: 52rem;
   padding: 2rem;
   margin: 2rem;
@@ -127,7 +157,7 @@ main {
 
 #apod-title {
   font-size: 2.5rem;
-  color: #38bdf8;
+  color: var(--color-accent);
   margin: 0.2rem 0 0.8rem 0;
 }
 
@@ -145,13 +175,13 @@ main {
 
 #hd-link > a {
   text-decoration: none;
-  color: #38bdf8;
+  color: var(--color-accent);
   font-weight: 600;
   transition: 0.3s ease;
 }
 
 #hd-link > a:hover {
-  color: #3b82f6;
+  color: var(--color-accent-hover);
 }
 
 #controls {
@@ -172,7 +202,7 @@ main {
 
 #controls > div > button {
   color: #f5f5f5;
-  background-color: #2563eb;
+  background-color: var(--color-btn);
   padding: 0.8rem 1.2rem;
   border-radius: 0.5rem;
   outline: none;
@@ -194,7 +224,7 @@ main {
 
 #random-apod-btn {
   color: #f5f5f5;
-  background-color: #2563eb;
+  background-color: var(--color-btn);
   padding: 0.75rem 1.2rem;
   border-radius: 0.5rem;
   outline: none;
@@ -207,11 +237,11 @@ main {
 
 #controls > div > button:hover,
 #random-apod-btn:hover {
-  background-color: #3b82f6;
+  background-color: var(--color-accent-hover);
 }
 
 footer {
-  background-color: #192233;
+  background-color: var(--color-bg-card);
   padding: 1rem;
   font-size: 0.9rem;
   display: none;
@@ -221,13 +251,21 @@ footer > div {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
   gap: 4px;
 }
 
 footer > div > p > a {
   text-decoration: none;
-  color: #38bdf8;
+  color: var(--color-accent);
+}
+
+#theme-toggle {
+  background: transparent;
+  border: none;
+  color: var(--color-text);
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
 @media (max-width: 600px) {
