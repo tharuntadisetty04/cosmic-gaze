@@ -118,11 +118,9 @@ nextDayBtn.addEventListener("click", () => {
   if (currentDate.getDate() === new Date().getDate()) {
     showError("There are no images for future dates.");
     window.scrollTo({ top: 0 });
-    nextDayBtn.style.cursor = "not-allowed";
     return;
   }
 
-  nextDayBtn.style.cursor = "pointer";
   currentDate.setDate(currentDate.getDate() + 1);
   fetchAPOD(formatDate(currentDate));
 });
