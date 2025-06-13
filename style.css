@@ -1,0 +1,259 @@
+@font-face {
+  font-family: "SpaceGrotesk";
+  src: url(./fonts/SpaceGrotesk-Regular.ttf);
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "SpaceGrotesk", Arial, sans-serif;
+}
+
+body {
+  color: #f5f5f5;
+  background-color: #0b1120;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: #192233;
+}
+
+#logo {
+  color: #38bdf8;
+  font-size: 1.8rem;
+}
+
+.social-links > a {
+  text-decoration: none;
+  color: #f5f5f5;
+  font-size: 1.2rem;
+  transition: 0.3s ease;
+  margin-left: 0.3rem;
+}
+
+.social-links > a:hover {
+  color: #38bdf8;
+  filter: drop-shadow(0 0 2px #38bdf8);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#loading-spinner {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  height: 100svh;
+}
+
+.loader {
+  border: 4px solid #f5f5f5;
+  border-top: 4px solid #38bdf8;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#loading-spinner > p {
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+
+#error-message {
+  background-color: #b91c1c;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+  display: none;
+}
+
+#error-details {
+  margin-top: 0.6rem;
+}
+
+#apod-card {
+  background-color: #192233;
+  max-width: 52rem;
+  padding: 2rem;
+  margin: 2rem;
+  border-radius: 0.6rem;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#media-container > img {
+  border-radius: 0.4rem;
+  width: 100%;
+  max-width: 52rem;
+}
+
+#media-container > iframe {
+  border-radius: 0.4rem;
+  border: none;
+}
+
+.apod-data {
+  margin: 1rem 0;
+}
+
+#apod-date {
+  font-size: 1.3rem;
+  font-weight: 300;
+  opacity: 0.75;
+}
+
+#apod-title {
+  font-size: 2.5rem;
+  color: #38bdf8;
+  margin: 0.2rem 0 0.8rem 0;
+}
+
+#apod-desc {
+  font-size: 1.1rem;
+  line-height: 1.8rem;
+  text-align: justify;
+}
+
+#hd-link {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+#hd-link > a {
+  text-decoration: none;
+  color: #38bdf8;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+#hd-link > a:hover {
+  color: #3b82f6;
+}
+
+#controls {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+#controls > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  margin-right: 1rem;
+}
+
+#controls > div > button {
+  color: #f5f5f5;
+  background-color: #2563eb;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#date-picker {
+  cursor: pointer;
+  padding: 0.7rem 1.2rem;
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+}
+
+#random-apod-btn {
+  color: #f5f5f5;
+  background-color: #2563eb;
+  padding: 0.75rem 1.2rem;
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#controls > div > button:hover,
+#random-apod-btn:hover {
+  background-color: #3b82f6;
+}
+
+footer {
+  background-color: #192233;
+  padding: 1rem;
+  font-size: 0.9rem;
+  display: none;
+}
+
+footer > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 4px;
+}
+
+footer > div > p > a {
+  text-decoration: none;
+  color: #38bdf8;
+}
+
+@media (max-width: 600px) {
+  #apod-title {
+    font-size: 2rem;
+  }
+
+  #apod-desc {
+    text-align: left;
+  }
+
+  #controls {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #controls > div {
+    flex-direction: column;
+    margin-bottom: 1rem;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  #controls > div > button,
+  #date-picker,
+  #random-apod-btn {
+    width: 75%;
+  }
+}

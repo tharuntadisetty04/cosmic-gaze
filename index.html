@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cosmic Gaze</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <h1 id="logo">Cosmic Gaze</h1>
+
+        <div class="social-links">
+          <a href="https://github.com/tharuntadisetty04" target="_blank">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://x.com/tharunverse" target="_blank">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div id="loading-spinner">
+        <div class="loader"></div>
+        <p>Loading cosmic wonders...</p>
+      </div>
+
+      <div id="error-message">
+        <p>Oops! Unable to fetch data. Try again</p>
+        <p id="error-details"></p>
+      </div>
+
+      <section id="apod-card">
+        <div id="media-container"></div>
+
+        <div class="apod-data">
+          <h2 id="apod-date"></h2>
+          <h3 id="apod-title"></h3>
+          <p id="apod-desc"></p>
+        </div>
+
+        <div id="hd-link">
+          <a href="" target="_blank">
+            View HD Image <i class="fas fa-external-link-alt ml-1"></i>
+          </a>
+        </div>
+      </section>
+
+      <section id="controls">
+        <div>
+          <button id="prev-day-btn">
+            <i class="fas fa-arrow-left mr-2"></i> Previous Day
+          </button>
+
+          <input type="date" id="date-picker" />
+
+          <button id="next-day-btn">
+            Next Day <i class="fas fa-arrow-right ml-2"></i>
+          </button>
+        </div>
+
+        <button id="random-apod-btn">
+          <i class="fas fa-random mr-2"></i> Surprise Me!
+        </button>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <p>
+          Powered by
+          <a href="https://api.nasa.gov/" target="_blank">NASA APOD API </a>
+        </p>
+        <p>
+          | Made by
+          <a href="https://x.com/tharunverse" target="_blank">Tharun</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
