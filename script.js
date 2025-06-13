@@ -122,6 +122,7 @@ nextDayBtn.addEventListener("click", () => {
     return;
   }
 
+  nextDayBtn.style.cursor = "pointer";
   currentDate.setDate(currentDate.getDate() + 1);
   fetchAPOD(formatDate(currentDate));
 });
