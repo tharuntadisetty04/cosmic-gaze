@@ -1,6 +1,3 @@
-const API_KEY = "fWAuiO44UELA0tHc2LC1dT6ip52vngL7EAATqXPr";
-const BASE_URL = "https://api.nasa.gov/planetary/apod";
-
 const apodCard = document.getElementById("apod-card");
 const mediaContainer = document.getElementById("media-container");
 const apodDate = document.getElementById("apod-date");
@@ -46,11 +43,11 @@ const showError = (err) => {
 const fetchAPOD = async (date = null, isRandom = false) => {
   showLoading();
 
-  let url = `${BASE_URL}?api_key=${API_KEY}`;
+  let url = "https://nasa-project-server-one.vercel.app/api/apod";
   if (isRandom) {
-    url += `&count=1`;
+    url += `?isRandom=true`;
   } else if (date) {
-    url += `&date=${date}`;
+    url += `?date=${date}`;
   }
 
   try {
@@ -78,15 +75,13 @@ const fetchAPOD = async (date = null, isRandom = false) => {
     }
 
     const data = await response.json();
-    const apodData = isRandom ? data[0] : data;
-
-    displayAPOD(apodData);
+    displayAPOD(data);
 
     if (!isRandom) {
       datePicker.value = formatDate(currentDate);
     } else {
-      currentDate = new Date(apodData.date);
-      datePicker.value = apodData.date;
+      currentDate = new Date(data.date);
+      datePicker.value = data.date;
     }
   } catch (error) {
     showError(error);
