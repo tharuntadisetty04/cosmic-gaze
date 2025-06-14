@@ -1,4 +1,4 @@
-const API_KEY = "DEMO_KEY";
+const API_KEY = "fWAuiO44UELA0tHc2LC1dT6ip52vngL7EAATqXPr";
 const BASE_URL = "https://api.nasa.gov/planetary/apod";
 
 const apodCard = document.getElementById("apod-card");
@@ -57,7 +57,24 @@ const fetchAPOD = async (date = null, isRandom = false) => {
     const response = await fetch(url);
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData.error?.message || "Fetch error");
+
+      if (
+        response.status === 404 &&
+        errorData.msg &&
+        errorData.msg.startsWith("No data available for date:")
+      ) {
+        showError(
+          `NASA has not uploaded today's APOD. Please check back later. \n${errorData?.msg}`
+        );
+
+        datePicker.value = formatDate(currentDate);
+        return;
+      }
+
+      showError(errorData.error?.message || errorData?.msg || "Fetch error");
+      throw new Error(
+        errorData.error?.message || errorData?.msg || "Fetch error"
+      );
     }
 
     const data = await response.json();
