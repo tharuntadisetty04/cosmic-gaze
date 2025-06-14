@@ -1,4 +1,4 @@
-const API_KEY = "fWAuiO44UELA0tHc2LC1dT6ip52vngL7EAATqXPr";
+const API_KEY = "DEMO_KEY";
 const BASE_URL = "https://api.nasa.gov/planetary/apod";
 
 const apodCard = document.getElementById("apod-card");
